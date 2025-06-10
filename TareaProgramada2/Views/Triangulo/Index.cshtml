@@ -1,0 +1,85 @@
+@model TareaProgramada2.Models.TrianguloModel
+@{
+    ViewData["Title"] = "Triangulo Page";
+}
+
+<h2>Triangulo Page</h2>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Resultados / Errores</h5>
+    </div>
+    <div class="card-body">
+    @if(ViewData["ErrorMessage"] != null)
+    {
+        <strong>Error: @ViewData["ErrorMessage"]</strong><br/>
+    }
+    @if (Model != null && Model.Perimetro > 0 && Model.Semiperimetro > 0 && Model.Area > 0)
+    {
+        @* <strong>Resultados:</strong><br/>
+        @ViewData["Perimetro"] <br/>
+        @ViewData["Semiperimetro"] <br/>
+        @Html.Raw(ViewData["Area"]) <br/>
+        @Html.Raw(ViewData["TipoTriangulo"]) <br/>
+        @Html.Raw(ViewData["Alfa"]); <br/>
+        @Html.Raw(ViewData["Beta"]); <br/>
+        @Html.Raw(ViewData["Gamma"]);<br/>
+
+<br/> *@
+        <span><strong>P:</strong> @Model?.Perimetro <strong>u</strong></span><br/>
+        <span><strong>S:</strong> @Model?.Semiperimetro <strong>u</strong></span><br/>
+        <span><strong>A:</strong> @Model?.Area.ToString("F2") <strong>u²</strong></span><br/>
+        <span><strong>Tipo:</strong> @Model?.TipoTriangulo</span><br/>
+        <span><strong>α</strong> ≈ @Model?.Alfa.ToString("F2")°</span><br/>
+        <span><strong>β</strong> ≈ @Model?.Beta.ToString("F2")°</span><br/>
+        <span><strong>ɣ</strong> ≈ @Model?.Gamma.ToString("F2")°</span><br/>
+
+    }
+    @* @Html.Raw(ViewData["ErrorMessage"]) <br/>
+    @Html.Raw(ViewData["Perimetro"]) <br/>
+    @Html.Raw(ViewData["Semiperimetro"]) <br/>
+    @Html.Raw(ViewData["Area"]) <br/>
+    @Html.Raw(ViewData["TipoTriangulo"]) <br/>
+    @Html.Raw(ViewData["Alfa"]); <br/>
+    @Html.Raw(ViewData["Beta"]); <br/>
+    @Html.Raw(ViewData["Gamma"]); *@
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header">
+        <h5 class="card-title">Formulario de Cálculo</h5>
+    </div>
+<div class="card-body">
+<form asp-controller="Triangulo" asp-action="Calcular" method="post">
+    <div class="mb-3">
+        <label asp-for="a" class="form-label"></label>
+        <input type="number" class="form-control" asp-for="a" required />
+        <span asp-validation-for="a" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="b" class="form-label"></label>
+        <input type="number" class="form-control" asp-for="b" required />
+        <span asp-validation-for="b" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="c" class="form-label"></label>
+        <input type="number" class="form-control" asp-for="c" required />
+        <span asp-validation-for="c" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+</form>
+</div>
+</div>
+@* 
+@if (Model?.Perimetro > 0)
+{
+    <h3>Resultados</h3>
+    <p>Área: @Model?.a</p>
+    <p>Perímetro: @Model?.b</p>
+    <p>Tipo de Triángulo: @Model?.c</p>
+}
+else
+{
+    <p>No se han calculado resultados aún.</p>
+} *@
