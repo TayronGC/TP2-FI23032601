@@ -16,16 +16,7 @@
     }
     @if (Model != null && Model.Perimetro > 0 && Model.Semiperimetro > 0 && Model.Area > 0)
     {
-        @* <strong>Resultados:</strong><br/>
-        @ViewData["Perimetro"] <br/>
-        @ViewData["Semiperimetro"] <br/>
-        @Html.Raw(ViewData["Area"]) <br/>
-        @Html.Raw(ViewData["TipoTriangulo"]) <br/>
-        @Html.Raw(ViewData["Alfa"]); <br/>
-        @Html.Raw(ViewData["Beta"]); <br/>
-        @Html.Raw(ViewData["Gamma"]);<br/>
 
-<br/> *@
         <span><strong>P:</strong> @Model?.Perimetro <strong>u</strong></span><br/>
         <span><strong>S:</strong> @Model?.Semiperimetro <strong>u</strong></span><br/>
         <span><strong>A:</strong> @Model?.Area.ToString("F2") <strong>u²</strong></span><br/>
@@ -35,14 +26,6 @@
         <span><strong>ɣ</strong> ≈ @Model?.Gamma.ToString("F2")°</span><br/>
 
     }
-    @* @Html.Raw(ViewData["ErrorMessage"]) <br/>
-    @Html.Raw(ViewData["Perimetro"]) <br/>
-    @Html.Raw(ViewData["Semiperimetro"]) <br/>
-    @Html.Raw(ViewData["Area"]) <br/>
-    @Html.Raw(ViewData["TipoTriangulo"]) <br/>
-    @Html.Raw(ViewData["Alfa"]); <br/>
-    @Html.Raw(ViewData["Beta"]); <br/>
-    @Html.Raw(ViewData["Gamma"]); *@
     </div>
 </div>
 
@@ -71,15 +54,3 @@
 </form>
 </div>
 </div>
-@* 
-@if (Model?.Perimetro > 0)
-{
-    <h3>Resultados</h3>
-    <p>Área: @Model?.a</p>
-    <p>Perímetro: @Model?.b</p>
-    <p>Tipo de Triángulo: @Model?.c</p>
-}
-else
-{
-    <p>No se han calculado resultados aún.</p>
-} *@
